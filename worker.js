@@ -1,6 +1,6 @@
 // Use environment variable for URL if available
 const SEARCH_PRO_URL = (typeof process !== 'undefined' && process.env.SEARCH_PRO_URL) ||
-    "https://chat.openai.com/g/g-67c54b9a7cac8191a9e788dcbfdf9ed6-searchpro";
+    "https://chat.openai.com/g/g-fdsdf-searchpro";
 const ALLOWED_REFERRERS = ["yourwebsite.com", "localhost"];
 
 /**
@@ -17,33 +17,26 @@ function isAuthorized(request) {
 }
 
 export default {
-  async fetch(request) {
-    try {
-      // Check authorization
-      if (!isAuthorized(request)) {
-        return new Response("Unauthorized request", {
-          status: 403,
-          headers: {"Content-Type": "text/plain"}
-        });
+  async fetch(request, env) {
+    const url = new URL(request.url);
+
+    // Handle search requests
+    if (url.pathname === "/search") {
+      const query = url.searchParams.get("q");
+      if (query) {
+        // Redirect to SearchPro with query parameter
+        return Response.redirect(
+            `https://searchpro-destination.com/search?query=${encodeURIComponent(query)}`,
+            302
+        );
       }
-
-      const url = new URL(request.url);
-      const query = url.searchParams.get("q")?.trim();
-
-      // If no query parameter, redirect to base URL
-      if (!query) {
-        return Response.redirect(SEARCH_PRO_URL, 302);
-      }
-
-      // Redirect with query parameter
-      const redirectURL = `${SEARCH_PRO_URL}?q=${encodeURIComponent(query)}`;
-      return Response.redirect(redirectURL, 302);
-    } catch (error) {
-      console.error("Error processing request:", error);
-      return new Response(`Error processing request: ${error.message}`, {
-        status: 500,
-        headers: {"Content-Type": "text/plain"}
-      });
     }
+
+    // Serve static content for everything else
+    return env.ASSETS.fetch(request);
   }
 };
+// Make sure environment variable is configured in wrangler.toml's [vars] section
+// Ensure ASSETS binding is defined in wrangler.toml
+// Consider using the isAuthorized() function in your request handling logic
+// Update ALLOWED_REFERRERS with your actual production domains

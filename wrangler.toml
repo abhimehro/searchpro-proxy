@@ -16,9 +16,9 @@ workers_dev = true
 [vars]
 # ENVIRONMENT = "production"
 
-# If you're proxying requests to an origin
+# Option 1: Specify a different directory
 [site]
-bucket = "./public"  # If you have static assets
+bucket = "./public"  # Relative to your project root Replace with your actual static files path
 
 # Configure bindings for proxy behavior
 [[services]]
