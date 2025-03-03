@@ -7,11 +7,11 @@ export default {
       const query = url.searchParams.get("q");
 
       if (!query) {
-        return new Response("No search query provided", { status: 400 });
+        return Response.redirect(SEARCH_PRO_URL, 302);
       }
 
-      // Redirect to SearchPro GPT with query
-      const redirectUrl = `${SEARCH_PRO_URL}?q=${encodeURIComponent(query)}`;
+      // Properly construct the redirect URL
+      const redirectUrl = `${SEARCH_PRO_URL}#q=${encodeURIComponent(query)}`;
       return Response.redirect(redirectUrl, 302);
     } catch (error) {
       return new Response("Internal Server Error", { status: 500 });
