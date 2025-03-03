@@ -1,0 +1,6 @@
+name = "searchpro-proxy"
+type = "javascript"
+account_id = "your-account-id"
+workers_dev = true
+route = ""
+zone_id = ""
