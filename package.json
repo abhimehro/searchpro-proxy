@@ -1,10 +1,23 @@
 {
   "name": "searchpro-proxy",
   "version": "1.0.0",
+  "description": "Proxy for SearchPro requests",
   "main": "worker.js",
   "license": "MIT",
-  "dependencies": {},
+  "private": true,
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "eslint": "^8.45.0",
+    "jest": "^29.7.0",
+    "prettier": "^3.0.0",
+    "wrangler": "^3.111.0"
+  },
   "scripts": {
-    "deploy": "wrangler deploy"
-  }
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "format": "prettier --write '**/*.{js,json}'",
+    "lint": "eslint .",
+    "test": "echo \"No tests configured\""
+  },
+  "packageManager": "yarn@4.5.0"
 }
