@@ -1,0 +1,10 @@
+{
+  "name": "searchpro-proxy",
+  "version": "1.0.0",
+  "main": "worker.js",
+  "license": "MIT",
+  "dependencies": {},
+  "scripts": {
+    "deploy": "wrangler deploy"
+  }
+}
