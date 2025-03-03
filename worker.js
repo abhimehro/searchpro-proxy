@@ -1,5 +1,5 @@
 // Use environment variable for URL if available
-const SEARCH_PRO_URL = (typeof process !== 'undefined' && process.env.SEARCH_PRO_URL) ||
+const SEARCH_PRO_URL =
     "https://chat.openai.com/g/g-fdsdf-searchpro";
 const ALLOWED_REFERRERS = ["yourwebsite.com", "localhost"];
 
@@ -20,23 +20,31 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
 
+    // Check authorization
+    if (!isAuthorized(request)) {
+      return new Response("Unauthorized", { status: 403 });
+    }
+
     // Handle search requests
     if (url.pathname === "/search") {
       const query = url.searchParams.get("q");
       if (query) {
         // Redirect to SearchPro with query parameter
         return Response.redirect(
-            `https://searchpro-destination.com/search?query=${encodeURIComponent(query)}`,
-            302
+          `${SEARCH_PRO_URL}/search?query=${encodeURIComponent(query)}`,
+          302
         );
       }
     }
 
-    // Serve static content for everything else
-    return env.ASSETS.fetch(request);
+    // Safety check for ASSETS binding
+    if (env && env.ASSETS) {
+      return env.ASSETS.fetch(request);
+    } else {
+      // Fallback for static content
+      return new Response("Welcome to SearchPro proxy", {
+        headers: { "Content-Type": "text/plain" }
+      });
+    }
   }
 };
-// Make sure environment variable is configured in wrangler.toml's [vars] section
-// Ensure ASSETS binding is defined in wrangler.toml
-// Consider using the isAuthorized() function in your request handling logic
-// Update ALLOWED_REFERRERS with your actual production domains

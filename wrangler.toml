@@ -4,27 +4,20 @@ compatibility_date = "2023-08-15"
 
 # Keep your account ID
 account_id = "51d2fba458de22279e7ea03fabfa0e62"
-
-# Enable development subdomain
 workers_dev = true
 
-# Uncomment and configure these when ready for production
-# route = "your-domain.com/*"
-# zone_id = "your-zone-id"
-
-# Environment variables (if needed)
+# Define the SearchPro URL
 [vars]
-# ENVIRONMENT = "production"
+SEARCH_PRO_URL = "https://chat.openai.com/g/g-fdsdf-searchpro"
 
-# Option 1: Specify a different directory
+# Static assets configuration
 [site]
-bucket = "./public"  # Relative to your project root Replace with your actual static files path
+bucket = "./public"  # Relative to your project root
 
-# Configure bindings for proxy behavior
-[[services]]
-binding = "UPSTREAM"
-service = "your-upstream-service"
+# REMOVE THIS ENTIRE SECTION - it's causing the deployment failure
+# [[services]]
+# binding = "UPSTREAM"
+# service = "your-upstream-service"
 
-# Control worker placement
 [placement]
 mode = "smart"
