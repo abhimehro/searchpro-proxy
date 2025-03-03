@@ -6918,7 +6918,7 @@
                 },
                 "fullDescription": {
                   "text": "Reports a redundant usage of 'await', such as 'await await', or awaiting a non-promise result. When the 'Report for promises' option is selected, suggests removing 'await' before promises when applicable (in 'return' statements, and with 'Promise.resolve/reject'). Removing 'await' in such contexts causes two problems. Surrounding your code with 'try-catch' and forgetting to add 'await' will change code semantics while you may fail to notice that. Having an explicit 'await' may prevent the V8 runtime from providing async stack traces.",
-                  "markdown": "Reports a redundant usage of `await`, such as `await await`, or awaiting a non-promise result.\n\n\nWhen the 'Report for promises' option is selected, suggests removing `await` before promises when applicable\n(in `return` statements, and with `Promise.resolve/reject`).\n\nRemoving `await` in such contexts causes two problems.\n\n* Surrounding your code with `try-catch` and forgetting to add `await` will change code semantics while you may fail to notice that.\n* Having an explicit `await` may prevent the V8 runtime from providing [async stack traces](http://bit.ly/v8-zero-cost-async-stack-traces)."
+                  "markdown": "Reports a redundant usage of `await`, such as `await await`, or awaiting a non-promise result.\n\n\nWhen the 'Report for promises' option is selected, suggests removing `await` before promises when applicable\n(in `return` statements, and with `Promise.resolve/reject`).\n\nRemoving `await` in such contexts causes two problems.\n\n* Surrounding your code with `try-catch` and forgetting to add `await` will change code semantics while you may fail to notice that.\n* Having an explicit `await` may prevent the V8 runtime from providing [async stack traces](https:///bit.ly/v8-zero-cost-async-stack-traces)."
                 },
                 "defaultConfiguration": {
                   "enabled": false,
@@ -13996,7 +13996,7 @@
                 },
                 "fullDescription": {
                   "text": "Reports inconsistency with the language specification in a JSON5 file.",
-                  "markdown": "Reports inconsistency with [the language specification](http://json5.org) in a JSON5 file."
+                  "markdown": "Reports inconsistency with [the language specification](https:///json5.org) in a JSON5 file."
                 },
                 "defaultConfiguration": {
                   "enabled": false,
@@ -22622,7 +22622,7 @@
                 },
                 "fullDescription": {
                   "text": "Reports a reference to a Less mixin that is not resolved. Example: '* {\n  .unknown-mixin();\n}'",
-                  "markdown": "Reports a reference to a [Less mixin](http://lesscss.org/features/#mixins-feature) that is not resolved.\n\n**Example:**\n\n\n    * {\n      .unknown-mixin();\n    }\n"
+                  "markdown": "Reports a reference to a [Less mixin](https:///lesscss.org/features/#mixins-feature) that is not resolved.\n\n**Example:**\n\n\n    * {\n      .unknown-mixin();\n    }\n"
                 },
                 "defaultConfiguration": {
                   "enabled": false,
@@ -22656,7 +22656,7 @@
                 },
                 "fullDescription": {
                   "text": "Reports a reference to a Less variable that is not resolved. Example: '* {\n  margin: @unknown-var;\n}'",
-                  "markdown": "Reports a reference to a [Less variable](http://lesscss.org/features/#variables-feature) that is not resolved.\n\n**Example:**\n\n\n    * {\n      margin: @unknown-var;\n    }\n"
+                  "markdown": "Reports a reference to a [Less variable](https:///lesscss.org/features/#variables-feature) that is not resolved.\n\n**Example:**\n\n\n    * {\n      margin: @unknown-var;\n    }\n"
                 },
                 "defaultConfiguration": {
                   "enabled": false,
@@ -22690,7 +22690,7 @@
                 },
                 "fullDescription": {
                   "text": "Reports a reference to a variable or mixin that is declared in another file, which is not explicitly imported in the current file. Example: '* {\n  margin: @var-in-other-file;\n}'",
-                  "markdown": "Reports a reference to a variable or mixin that is declared in another file, which is not explicitly [imported](http://lesscss.org/features/#import-atrules-feature) in the current file.\n\n**Example:**\n\n\n    * {\n      margin: @var-in-other-file;\n    }\n"
+                  "markdown": "Reports a reference to a variable or mixin that is declared in another file, which is not explicitly [imported](https:///lesscss.org/features/#import-atrules-feature) in the current file.\n\n**Example:**\n\n\n    * {\n      margin: @var-in-other-file;\n    }\n"
                 },
                 "defaultConfiguration": {
                   "enabled": false,
@@ -23442,7 +23442,7 @@
                 },
                 "fullDescription": {
                   "text": "Reports a discrepancy detected by the Stylelint linter. The highlighting is based on the rule severity specified in the Stylelint configuration file for each individual rule.",
-                  "markdown": "Reports a discrepancy detected by the [Stylelint](http://stylelint.io) linter.   \n\nThe highlighting is based on the rule severity specified in the [Stylelint configuration file](https://stylelint.io/user-guide/configure) for each individual rule."
+                  "markdown": "Reports a discrepancy detected by the [Stylelint](https:///stylelint.io) linter.   \n\nThe highlighting is based on the rule severity specified in the [Stylelint configuration file](https://stylelint.io/user-guide/configure) for each individual rule."
                 },
                 "defaultConfiguration": {
                   "enabled": false,
